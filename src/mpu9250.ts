@@ -38,3 +38,10 @@ export class MPU9250 {
         return acc
     }
 }
+
+export async function startMPU9250() {
+  const driver = new MPU9250Driver()
+  await driver.init();
+  const acc = await startAccelerometer(driver, {})
+  return acc
+}
